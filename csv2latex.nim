@@ -9,12 +9,12 @@ if os.paramCount() < 1:
     echo "Error: please specify lines to wrap."
     quit(1)
 
-let title = stdin.readLine.split(',')
+let title = stdin.readLine.split('\t')
 let col = title.len
 
 var rows: seq[seq[string]] = @[]
 for line in stdin.lines:
-    rows &= line.split(',')
+    rows &= line.split('\t')
 
 let wrapLine = os.paramStr(1).parseInt()
 let wholecol = (rows.len + wrapLine - 1) div wrapLine
